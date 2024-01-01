@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loading</title>
+    <style>
+        body,html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            height: 100vh;
+            width: 100%;
+            background-color: rgba(0,0,0,.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            letter-spacing: 2px;
+
+
+        }
+        .loading{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: solid 4px rgba(0,0,0,.3);
+            border-top: solid 4px #fff;
+            animation: loadingAnimation 1.5s cubic-bezier(.58,.15,.55,1.01) infinite;
+            margin-right: 1rem;
+        }
+        @keyframes loadingAnimation {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="loading"></div>
+    <span class="load__text">loading...</span>
+</div>
+</body>
+</html>
