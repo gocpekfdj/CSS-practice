@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wave</title>
+    <style>
+        :root{
+            --m: -55%;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .wave {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            display: flex;
+            border-radius: 50%;
+            background-color: rgb(118, 218, 255);
+            justify-content: center;
+            align-items: center;
+
+        }
+        .process{
+            font-size: 25px;
+            font-weight: 400;
+            color: #030303;
+            z-index: 30;
+        }
+        .wave::after,
+        .wave::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(255, 255, 255, .4);
+            border-radius: 45%;
+            transform: translate(-50%,var(--m)) rotate(0);
+            animation: rotate 4s linear infinite;
+            z-index: 10;
+            transition: all 1s;
+        }
+        .wave::after{
+            z-index: 20;
+            border-radius: 47%;
+            background-color: rgba(255, 255, 255, .8);
+            transform: translate(-50%,var(--m)) rotate(0);
+            animation: rotate 6s linear -4s infinite;
+        }
+
+        @keyframes rotate {
+            50%{
+                transform:translate(-50%, var(--m)) rotate(180deg);
+            }
+            100%{
+                transform:translate(-50%, var(--m)) rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="wave">
+        <span class="process">0%</span>
+    </div>
+</div>
+<script>
+    const root = document.documentElement;
+    const computedStyle = getComputedStyle(root);
+    const process = computedStyle.getPropertyValue('--m');
+    console.log(process)
+    let process_num = document.querySelector('.process');
+    let i = 0;
+    const timer = setInterval(()=>{
+        root.style.setProperty('--m', `-${100-(50-i*0.1)}%`);
+        process_num.textContent = Math.floor(i/5)+'%';
+        i++;
+        console.log(process_num.textContent);
+        if(process_num.textContent === '100%'){
+
+            clearInterval(timer);
+        }
+    },10)
+</script>
+</body>
+</html>

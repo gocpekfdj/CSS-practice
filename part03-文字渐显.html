@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            height: 100vh;
+            background-color: #000;
+        }
+        p {
+
+            color: #fff;
+            font-weight: 600;
+            font-family: 'Open Sans', sans-serif;
+            /*text-shadow:*/
+            /*        0 0 10px #0ebeff,*/
+            /*        0 0 20px #0ebeff,*/
+            /*        0 0 50px #0ebeff,*/
+            /*        0 0 100px #0ebeff,*/
+            /*        0 0 200px #0ebeff;*/
+            mask: radial-gradient(circle at 0% 50%, #000, transparent 10%, transparent 0%);
+            mask-size: 100%;
+            animation: scale 6s infinite;
+        }
+        @keyframes scale {
+            0%{
+                mask-size: 100%;
+            }
+            60%,
+            100%{
+                mask-size: 2000%;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+<p>Hello Mask</p>
+</body>
+</html>
